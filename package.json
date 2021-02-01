@@ -1,0 +1,27 @@
+{
+  "name": "application_scheduler_and_job_moniter",
+  "version": "1.0.0",
+  "description": "Side Project Created using MERN Stack",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "npx nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-Pradeep/Application-Scheduler-Job-Moniter.git"
+  },
+  "author": "A-Pradeep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A-Pradeep/Application-Scheduler-Job-Moniter/issues"
+  },
+  "homepage": "https://github.com/A-Pradeep/Application-Scheduler-Job-Moniter#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.14"
+  }
+}
