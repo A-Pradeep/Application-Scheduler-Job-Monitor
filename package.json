@@ -20,6 +20,7 @@
   "homepage": "https://github.com/A-Pradeep/Application-Scheduler-Job-Moniter#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.4.2",
+    "axios": "^0.21.1",
     "cron-job-manager": "^2.1.4",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
