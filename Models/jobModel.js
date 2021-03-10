@@ -9,12 +9,6 @@ const jobSchema = new mongoose.Schema(
     alertType: { type: String, required: true },
     endpoint: { type: String, required: true },
     errorCount: { type: Number },
-    logs: [
-      {
-        status: Number,
-        message: String,
-      },
-    ],
   },
   { timestamps: true }
 );
