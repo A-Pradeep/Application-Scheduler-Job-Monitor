@@ -1,11 +1,12 @@
-import { Jumbotron } from "react-bootstrap";
+import { Route, Switch } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <Jumbotron>
-        <h1>ನಮಸ್ತೆ</h1>
-      </Jumbotron>
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+      </Switch>
     </div>
   );
 }
