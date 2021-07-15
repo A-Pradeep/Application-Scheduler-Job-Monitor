@@ -1,19 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 .App {
+  font-family: "Quicksand", sans-serif;
   max-width: 85%;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.noJobProcess {
+  background: url("./Assets/Images/AddNewJob.jpg") no-repeat !important;
+  background-position: left bottom !important;
+  background-size: 54% !important;
+  position: absolute;
+  top: 5rem;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.noJobProcess > span {
+  font-size: 7rem;
+  text-align: right;
+  float: right;
+}
+
+.newJobButton {
+  background-color: #ff4f5a;
+  border: unset;
+  font-size: xx-large;
+  float: left;
+  border-radius: 25px;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+  transform: translateX(150%);
+}
+
+.card {
+  cursor: pointer;
+  padding: 1rem;
+  border: unset !important;
+}
+
+.card-header-curve {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+}
+
+.row {
+  align-items: baseline;
+}
+
+.card-body {
+  background: gainsboro;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
+.jobLogDetailCard {
+  max-height: 80vh;
+  overflow: auto;
+  background-color: black;
+  padding: 1rem;
+  border-radius: 25px;
 }
