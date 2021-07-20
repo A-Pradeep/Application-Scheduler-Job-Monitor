@@ -127,8 +127,8 @@ router.post("/restart", checkID, async (req, res) => {
 // Delete All jobs
 router.delete("/delete/all", async (req, res) => {
   try {
-    await jobSchedulerModal.deleteMany();
     await logModel.deleteMany();
+    await jobSchedulerModal.deleteMany();
     res
       .status(201)
       .json({ message: "All Jobs and Logs deleted successfully." });
@@ -157,7 +157,9 @@ router.delete("/delete/:id", checkID, async (req, res) => {
 // Get logs related to Job
 router.get("/log/:id", checkLogID, async (req, res) => {
   try {
-    const logData = await logModel.find({ jobID: req.params.id });
+    const logData = await logModel
+      .find({ jobID: req.params.id })
+      .sort({ createdAt: -1 });
     res.status(200).json(logData);
   } catch (error) {
     res.status(404).json({ message: "Log not found" });
