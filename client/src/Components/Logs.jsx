@@ -8,7 +8,11 @@ export default function Logs({ logID }) {
       {logID.map((data, index) => {
         return (
           <>
-            <Card bg={data.status === "200" ? "success" : "danger"} key={index}>
+            <Card
+              className="minimalCard"
+              bg={data.status === "200" ? "success" : "danger"}
+              key={index}
+            >
               <Card.Header as="h5">
                 <Container>
                   <Row>
