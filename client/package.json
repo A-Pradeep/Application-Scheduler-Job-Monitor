@@ -9,6 +9,7 @@
     "antd": "^4.16.8",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "cronstrue": "^1.114.0",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
