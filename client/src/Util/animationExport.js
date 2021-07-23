@@ -7,6 +7,7 @@ import loading from "react-useanimations/lib/loading";
 import loading2 from "react-useanimations/lib/loading2";
 import loading3 from "react-useanimations/lib/loading3";
 import trash2 from "react-useanimations/lib/trash2";
+import info from "react-useanimations/lib/info";
 
 const parentAnimation = {
   activity,
@@ -18,6 +19,7 @@ const parentAnimation = {
   loading2,
   loading3,
   trash2,
+  info,
 };
 
 export default parentAnimation;
