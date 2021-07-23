@@ -69,3 +69,28 @@
   padding: 1rem;
   border-radius: 25px;
 }
+
+.newJobButtonBottom {
+  background-color: #ff4f5a;
+  border: unset;
+  border-radius: 25px;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.jobButtonParent {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2rem;
+}
+
+.minimalCard {
+  padding: 0%;
+  cursor: auto;
+}
+
+/* Overriding Cron generator CSS */
+.ant-select-selector {
+  border-color: #d9d9d9 !important;
+}
