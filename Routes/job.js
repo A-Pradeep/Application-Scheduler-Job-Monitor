@@ -63,7 +63,12 @@ router.post("/new", async (req, res) => {
   try {
     const newJob = await newJobDetails.save();
     js.scheduleNewJob(req.body, newJob.id);
-    res.status(201).json(newJob);
+
+    const allJob = await jobSchedulerModal.find().sort({ createdAt: -1 });
+    res.status(200).json({
+      message: "New Job created.",
+      newData: { count: allJob.length, jobsList: allJob },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -74,7 +79,6 @@ router.post("/stop", checkID, async (req, res) => {
   if (!req.body.id) {
     res.status(404).json({ message: "Job UID required." });
   } else {
-    console.log("\n\n Stopping: " + req.body.id);
     try {
       const getJob = await jobSchedulerModal.updateOne(
         { _id: req.body.id },
@@ -91,7 +95,6 @@ router.post("/stop", checkID, async (req, res) => {
 
 // Stop all job
 router.post("/stopAll", async (req, res) => {
-  console.log("\n\n Stopping ALL");
   try {
     const getJob = await jobSchedulerModal.updateMany({
       currentStatus: "Stopped",
@@ -109,7 +112,6 @@ router.post("/restart", checkID, async (req, res) => {
   if (!req.body.id) {
     res.status(404).json({ message: "Job UID required." });
   } else {
-    console.log("\n\n Starting: " + req.body.id);
     try {
       const getJob = await jobSchedulerModal.updateOne(
         { _id: req.body.id },
