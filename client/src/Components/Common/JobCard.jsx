@@ -30,7 +30,7 @@ const JobCard = ({ data, totalCount, updateData }) => {
     setShow(false);
     if (modalTitle === "Restart Job") {
       http
-        .post(`${process.env.REACT_APP_URL}/job/restart`, { id: currentUID })
+        .post(`/job/restart`, { id: currentUID })
         .then((response) => {
           Notify.success(response.data.message);
           updateData();
@@ -40,7 +40,7 @@ const JobCard = ({ data, totalCount, updateData }) => {
         });
     } else if (modalTitle === "Delete Job") {
       http
-        .delete(`${process.env.REACT_APP_URL}/job/delete/${currentUID}`)
+        .delete(`/job/delete/${currentUID}`)
         .then((response) => {
           Notify.error(response.data.message);
           updateData();
@@ -50,7 +50,7 @@ const JobCard = ({ data, totalCount, updateData }) => {
         });
     } else {
       http
-        .post(`${process.env.REACT_APP_URL}/job/stop`, { id: currentUID })
+        .post(`/job/stop`, { id: currentUID })
         .then((response) => {
           Notify.warning(response.data.message);
           updateData();
@@ -163,10 +163,22 @@ const JobCard = ({ data, totalCount, updateData }) => {
                         </Link>
                       </Col>
                       <Col xs={1}>
-                        <StatusAnimation
-                          statusName={parentAnimation.share}
-                          sizename={25}
-                        />
+                        <div
+                          onClick={() => {
+                            navigator.clipboard.writeText(
+                              `http://${window.location.host}/jobDetails/${job._id}`
+                            );
+                            Notify.success(
+                              "Share ID copied to clipboard",
+                              "bottom-center"
+                            );
+                          }}
+                        >
+                          <StatusAnimation
+                            statusName={parentAnimation.share}
+                            sizename={25}
+                          />
+                        </div>
                       </Col>
                       <Col xs={1}>
                         <StatusAnimation
