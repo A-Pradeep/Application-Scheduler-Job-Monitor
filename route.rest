@@ -1,0 +1,60 @@
+# ---------------------------------------------------------------------------
+# vs code extension: REST Client
+# url - https://marketplace.visualstudio.com/items?itemName=humao.rest-client 
+# ---------------------------------------------------------------------------
+
+# API Endpoint Testing
+
+# Get all Jobs
+GET  http://localhost:3001/job
+###
+
+# Get all CRON Jobs
+GET  http://localhost:3001/job/Cjob
+###
+
+# Create New Job
+POST http://localhost:3001/job/new
+Content-Type: application/json
+
+{
+    "title": "Testing Scheduler",
+    "currentStatus": "Active",
+    "alertType": "email",
+    "method": "GET",
+    "frequency": "* * * * *",
+    "endpoint": "https://github.com/A-Pradeep"
+}
+###
+
+#Stop Job by ID
+PATCH  http://localhost:3001/job/stop
+Content-Type: application/json
+
+{
+    "id": "Replace with JOB ID"
+}
+###
+
+# Stop all Job
+POST  http://localhost:3001/job/stopAll
+Content-Type: application/json
+###
+
+# Re-start Job by ID
+POST  http://localhost:3001/job/restart
+Content-Type: application/json
+
+{
+    "id": "Replace with JOB ID"
+}
+
+###
+
+# Delet job by ID
+DELETE http://localhost:3001/job/*Enter JOB ID*
+###
+
+# Delete all job
+DELETE http://localhost:3001/job/delete/all
+###
