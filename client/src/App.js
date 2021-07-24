@@ -1,7 +1,7 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import Dashboard from "./Components/Dashboard";
-import { DetailsPage } from "./Components/DetailsPage";
+import DetailsPage from "./Components/DetailsPage";
 import PageNotFound from "./Components/Error Page/PageNotFound";
 import LandingPage from "./Components/LandingPage";
 
@@ -24,7 +24,7 @@ function App() {
       />
       <Switch>
         <Route path="/404" component={PageNotFound} />
-        <Route path="/Dashboard" component={Dashboard} />
+        <Route exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/jobDetails/:id" component={DetailsPage} />
         <Route exact path="/" component={LandingPage} />
         <Redirect to="/404" />
