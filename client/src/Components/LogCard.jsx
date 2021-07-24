@@ -13,7 +13,7 @@ export default function LogCard({ jobUID }) {
   useEffect(() => {
     setLoadingIcon(true);
     http
-      .get(`${process.env.REACT_APP_URL}/job/log/${jobUID}`)
+      .get(`/job/log/${jobUID}`)
       .then((response) => {
         setLogData(response.data);
         setLoadingIcon(false);
