@@ -7,11 +7,10 @@ export default function Logs({ logID }) {
     <div className="jobLogDetailCard">
       {logID.map((data, index) => {
         return (
-          <>
+          <div key={index}>
             <Card
               className="minimalCard"
               bg={data.status === "200" ? "success" : "danger"}
-              key={index}
             >
               <Card.Header as="h5">
                 <Container>
@@ -43,7 +42,7 @@ export default function Logs({ logID }) {
               </Card.Body>
             </Card>
             <hr />
-          </>
+          </div>
         );
       })}
     </div>
