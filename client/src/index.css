@@ -17,11 +17,29 @@
   bottom: 0px;
   left: 0px;
 }
+.noJobError {
+  background: url("./Assets/Images/Empty.jpg") no-repeat !important;
+  background-position: left bottom !important;
+  background-size: 45% !important;
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+  bottom: 0px;
+  left: 0px;
+}
 
 .noJobProcess > span {
   font-size: 7rem;
   text-align: right;
   float: right;
+}
+.noJobError > span {
+  font-size: 5rem;
+  text-align: center;
+  float: right;
+}
+.noJobError > span > strong {
+  font-size: 20px;
 }
 
 .newJobButton {
@@ -90,7 +108,8 @@
   cursor: auto;
 }
 
-/* Overriding Cron generator CSS */
+/* Overriding Cron generator CSS  - START*/
 .ant-select-selector {
   border-color: #d9d9d9 !important;
 }
+/* Overriding Cron generator CSS  - END*/
