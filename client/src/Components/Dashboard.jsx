@@ -18,6 +18,12 @@ const Dashboard = () => {
 
   const formRef = useRef(null);
 
+  const checkURL = (string) => {
+    var res = string.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/g
+    );
+    return res !== null;
+  };
   const handleClose = () => {
     setShow(false);
     setCheckWebLoading(false);
@@ -30,6 +36,13 @@ const Dashboard = () => {
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();
+      setValidated(true);
+      return;
+    }
+
+    if (!checkURL(event.target.elements.formWebsite.value)) {
+      event.stopPropagation();
+      Notify.error("Invalid website URL.", "bottom-center");
       setValidated(true);
       return;
     }
@@ -74,6 +87,13 @@ const Dashboard = () => {
       setCheckWebLoading(false);
       return;
     }
+
+    if (!checkURL(websiteURL)) {
+      setCheckWebLoading(false);
+      Notify.error("Invalid website URL.", "bottom-center");
+      return;
+    }
+
     http
       .get(websiteURL)
       .then(({ status, statusText }) => {
