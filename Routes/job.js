@@ -6,6 +6,7 @@ const logModel = require("../Models/logModel");
 
 const checkID = require("../Middleware/checkID");
 const checkLogID = require("../Middleware/checkLogID");
+const { http } = require("../Middleware/http");
 
 const js = new jobScheduler();
 
@@ -165,6 +166,23 @@ router.get("/log/:id", checkLogID, async (req, res) => {
     res.status(200).json(logData);
   } catch (error) {
     res.status(404).json({ message: "Log not found" });
+  }
+});
+
+// Check the Website URL
+router.get("/checkWebsite", async (req, res) => {
+  if (!req.query.url) res.status(404).json({ message: "Website URL missing" });
+  try {
+    http
+      .get(req.query.url)
+      .then(({ status, statusText }) => {
+        res.status(status).send(statusText);
+      })
+      .catch((error) => {
+        res.status(404).send({ errno: error.errno, code: error.code });
+      });
+  } catch (error) {
+    res.status(404).json({ message: "Invalid Query" });
   }
 });
 
