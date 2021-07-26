@@ -13,6 +13,7 @@ export default function NewJobFormModal({
   checkWebLoading,
   funCheckWebsite,
   formRef,
+  disableBtn,
 }) {
   const [CRON, setCRON] = useState("* * * * *");
   const [postOptions, setPostOptions] = useState(false);
@@ -131,11 +132,22 @@ export default function NewJobFormModal({
               />
             )}
           </Button>
-          <Button variant="secondary" onClick={funClose}>
+          <Button variant="secondary" onClick={funClose} disabled={disableBtn}>
             Close
           </Button>
-          <Button variant="primary" type="submit">
-            Create New Job
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={disableBtn}
+            style={{ display: "flex" }}
+          >
+            {disableBtn ? "Creating New Job" : "New Job"}
+            {disableBtn && (
+              <StatusAnimation
+                statusName={parentAnimation.loading}
+                sizename={25}
+              />
+            )}
           </Button>
         </Modal.Footer>
       </Form>

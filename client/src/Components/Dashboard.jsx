@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [checkWebLoading, setCheckWebLoading] = useState(false);
   const [validated, setValidated] = useState(false);
   const [loadingIcon, setLoadingIcon] = useState(false);
+  const [disableBtn, setDisableBtn] = useState(false);
 
   const formRef = useRef(null);
 
@@ -29,14 +30,17 @@ const Dashboard = () => {
     setCheckWebLoading(false);
     formRef.current.reset();
     setValidated(false);
+    setDisableBtn(false);
   };
   const handleShow = () => setShow(true);
   const handleSubmit = (event, frequency) => {
+    setDisableBtn(true);
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidated(true);
+      setDisableBtn(false);
       return;
     }
 
@@ -44,6 +48,7 @@ const Dashboard = () => {
       event.stopPropagation();
       Notify.error("Invalid website URL.", "bottom-center");
       setValidated(true);
+      setDisableBtn(false);
       return;
     }
 
@@ -154,6 +159,7 @@ const Dashboard = () => {
           validated={validated}
           checkWebLoading={checkWebLoading}
           formRef={formRef}
+          disableBtn={disableBtn}
         />
       </>
     );
@@ -185,6 +191,7 @@ const Dashboard = () => {
           validated={validated}
           checkWebLoading={checkWebLoading}
           formRef={formRef}
+          disableBtn={disableBtn}
         />
       </div>
     </>
