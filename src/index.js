@@ -8,12 +8,10 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 
 // Routes
-const dashboardRoutes = require("../Routes/dashboard");
 const jobRoutes = require("../Routes/job");
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.use("/", dashboardRoutes);
 app.use("/job", jobRoutes);
 
 app.use("*", express.static(path.join(__dirname, "../client/build")));
