@@ -100,7 +100,7 @@ const Dashboard = () => {
     }
 
     http
-      .get(websiteURL)
+      .get(`/job/checkWebsite?url=${websiteURL}`)
       .then(({ status, statusText }) => {
         Notify.success(`Success : ${status} : ${statusText}`, "bottom-center");
         setCheckWebLoading(false);
