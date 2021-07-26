@@ -58,3 +58,6 @@ DELETE http://localhost:3001/job/*Enter JOB ID*
 # Delete all job
 DELETE http://localhost:3001/job/delete/all
 ###
+
+# Check Website URL
+GET http://localhost:3001/job/checkWebsite?url=*Website URL*
