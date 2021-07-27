@@ -1,0 +1,15 @@
+version: "3"
+services:
+  frontend:
+    image: 0ps1/ps_asjm
+    ports:
+      - "3001:3001"
+  db:
+    image: mongo:4.4-focal
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+volumes:
+  mongodb-data:
+    driver: local
